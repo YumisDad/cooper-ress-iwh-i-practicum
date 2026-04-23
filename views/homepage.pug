@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    header
+      h1 Custom Object Records
+      p Records loaded from your HubSpot developer test account custom object.
+      a(href="/update-cobj") Add to this table
+
+    main
+      if records.length
+        table
+          thead
+            tr
+              th ID
+              each prop in properties
+                th= prop.charAt(0).toUpperCase() + prop.slice(1)
+          tbody
+            each record in records
+              tr
+                td= record.id
+                each prop in properties
+                  td= record.properties && record.properties[prop]
+      else
+        p No records found. Try adding one using the form.
+
+    footer
+      p
+        | View this custom object in HubSpot:
+        a(href="https://app-na2.hubspot.com/contacts/245985237/objects/2-228619004/views/all/list", target="_blank") Open in HubSpot

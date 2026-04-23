@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    header
+      h1 Add a Custom Object Record
+
+    main
+      form(action="/update-cobj", method="POST")
+        div
+          label(for="name") Name
+          input(type="text", id="name", name="name", required=true)
+
+        div
+          label(for="species") Species
+          input(type="text", id="species", name="species", required=true)
+
+        div
+          label(for="bio") Bio
+          textarea(id="bio", name="bio")
+
+        button(type="submit") Create record
+
+    footer
+      a(href="/") Return to the homepage
